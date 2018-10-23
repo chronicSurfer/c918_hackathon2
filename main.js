@@ -1,7 +1,6 @@
 $(document).ready(initializeApp)
 
 function initializeApp () {
-    initMap();
 }
 function initMap () {
     var options = {
