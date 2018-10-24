@@ -94,9 +94,17 @@ function search(){
         success: function(data){
             console.log(data);
             for(item in data.tweets.statuses) {
+                var tweetText = data.tweets.statuses[item].text;
+                var linkIndex = tweetText.indexOf('http');
+                var linkLocation = (tweetText.slice(linkIndex));
+
+                    console.log(linkLocation);
+                    console.log(tweetText + linkLocation);
+
                 $('#tweets').append( $('<li>', {
-                    text: data.tweets.statuses[item].text
-                }) );
+                    text: data.tweets.statuses[item] + linkLocation.html
+                // <a href="linkLocation"></a>
+            }) );
             }
         }
     });

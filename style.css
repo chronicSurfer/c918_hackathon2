@@ -64,7 +64,11 @@ left:80%;
 
 ol{
     display: inline-block;
-    margin-left: 30%;
+    margin-left: 18%;
     border: .4rem solid black;
-    width: 40%;
+    width: 60%;
+}
+
+.twitter-hashtag-button{
+    margin: 0 auto;
 }
