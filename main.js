@@ -81,7 +81,7 @@ function createPhotoArray(){
         success: function(response){
             console.log('got data from flickr', response);
 
-            for(var i = 1; i < response.photos.photo.length; i++){
+            for(var i = 66; i < 74; i++){
                 var photoFarm = response.photos.photo[i].farm;
                 var photoServer = response.photos.photo[i].server;
                 var photoID = response.photos.photo[i].id;
