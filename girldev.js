@@ -26,8 +26,8 @@ var settings = {
 
             //name
             var eventName = global_result.results[i].name;
-            var eventNameElement=$('<div>').text(eventName);
-            $('.event-name').append(eventNameElement);
+            // var eventNameElement=$('<div>').text(eventName);
+            // $('.event-name').append(eventNameElement);
             
             //date toDateString
             var date = global_result.results[i].time;
@@ -78,4 +78,4 @@ var settings = {
         map:map,
         icon:icon
     });
-}
+}};
