@@ -150,7 +150,6 @@ function search(){
 }
 
 function addDataOntoPage () {
-    debugger;
     for(let i = 0; i < (storeReply.chickTech.eventName.length + storeReply.girlDev.eventName.length); i++){
         var attributeIndex = i.toString();
         if($(event.currentTarget).attr("index") === attributeIndex){

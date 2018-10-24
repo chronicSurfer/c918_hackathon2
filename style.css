@@ -1,12 +1,9 @@
 body{
-    /* height: 100vh;
-    width: 100vw; */
     margin:0;
-    /* overflow:hidden; */
+    font-family: "Libre Baskerville", serif;
 }
 
 header{
-    /* background-color:orange; */
     height:27%;
 }
 
@@ -16,7 +13,6 @@ ul{
 
 .landing_page{
     display: inline-block;
-    /* background-color: blue; */
     height:10%;
     position:relative;
     margin-top: 2%;
@@ -27,7 +23,6 @@ ul{
     display:inline-block;    
     width:24%;
     position:relative;
-    /* border: 2px solid red; */
     margin-left:.5%;
     margin-top: 2.5%;
     margin-bottom:2.5%;
@@ -53,8 +48,7 @@ position: absolute;
   display: none;
   width: 100%;
   text-align: center;
-  /* margin: 0; */
- height: 30%;
+    height: 30%;
   top: 40%;
   word-wrap: break-word;
   z-index:-1;
@@ -63,12 +57,6 @@ position: absolute;
 img:hover + p {
     display: block;
   }
-  
-
-
-/* #events-to-choose, header{
-    display:none;
-}  */
 
 .event-information{
     background-color:green;
@@ -99,18 +87,12 @@ ol{
     display: none;
 }
 
-/* #hidePage {
-    display: none;
-} */
 
 #map{
     height: 400px;
     width:50%;
 }
-/* #map{
-    height: 40px;
-    width:30%;
-} */
+
 header {
     margin: 0 auto;
 }
@@ -118,6 +100,7 @@ header {
     text-align: center;
     background-color: #F2D6F5;
 }
+
 /* will create this dynamically */
 .event-name {
     text-align: center;
