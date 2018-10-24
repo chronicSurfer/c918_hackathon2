@@ -10,28 +10,33 @@ header{
     height:27%;
 }
 
+ul{
+    margin-left: 44%;
+}
+
 .landing_page{
     display: inline-block;
     /* background-color: blue; */
-    height:73%;
+    height:10%;
     position:relative;
+    margin-top: 2%;
     
 }
 
 .landing_page>figure{
     display:inline-block;    
-    height:40%;
     width:24%;
     position:relative;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin-left:.5%;
-    margin-bottom: 1%;
+    margin-top: 2.5%;
+    margin-bottom:2.5%;
        
 }
 
 .landing_page>figure>img{
-    height:100%;
-    width:100%;   
+    width:100%;  
+    border-radius:10%; 
 }
 
 
@@ -97,3 +102,47 @@ ol{
 /* #hidePage {
     display: none;
 } */
+
+#map{
+    height: 400px;
+    width:50%;
+}
+/* #map{
+    height: 40px;
+    width:30%;
+} */
+header {
+    margin: 0 auto;
+}
+#websiteHeader{
+    text-align: center;
+    background-color: #F2D6F5;
+}
+/* will create this dynamically */
+.event-name {
+    text-align: center;
+    background-color: #F2D6F5;
+    font-size:36px;
+}
+
+/* credit to Sara Vieira from developerdrive.com */
+
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-20px);
+		transform: translateY(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-10px);
+		transform: translateY(-10px);
+	}
+}
+.landing_page>figure>img:hover {
+	animation: bounce 1s;
+}

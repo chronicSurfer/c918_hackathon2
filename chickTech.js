@@ -10,8 +10,7 @@ function initializeApp() {
 
 function addClickHandler () {
     // $(".picture").on("click",addDataOntoPage);
-    $(".picture").on("click",hideLandingPageAndShowDataPage);
-    $(".active").on("click",showLandingPageAndHideDataPage);
+
 
 }
 
@@ -127,20 +126,6 @@ console.log(chickTechStorage);
 
 // //add functionality of hiding and showing divs
 
-function hideLandingPageAndShowDataPage () {
-    // $("header").addClass("hidePage");
-    $("#events-to-choose").addClass("hidePage");
-    $("#event-chosen").removeClass("hidePage");
-    $("#twitter-and-google-maps").removeClass("hidePage");
-}
-
-//add functionality of showing landing page and showing divs
-
-function showLandingPageAndHideDataPage () {
-    $("#events-to-choose").removeClass("hidePage");
-    $("#event-chosen").addClass("hidePage");
-    $("#twitter-and-google-maps").addClass("hidePage");
-}
 
 // //adds a marker for each specific meetup location
 
@@ -161,4 +146,3 @@ function showLandingPageAndHideDataPage () {
 //     //resets the center of the google map to our specific coordinates
 //     map.panTo(coordinates);
 // }
-

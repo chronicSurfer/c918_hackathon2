@@ -94,4 +94,3 @@ function data_storage(events){
         girlDevStorage.longitude = longitudeArr;
         girlDevStorage.date = dateArr;
 }
-
