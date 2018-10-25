@@ -2,13 +2,216 @@ $(document).ready(initializeApp);
 
 var map;
 var storeReply = {};
+var globalReply;
+var chickTechStorage = {};
+var global_result;
+var girlDevStorage={};
 storeReply.chickTech = chickTechStorage;
 storeReply.girlDev= girlDevStorage;
 
-function initializeApp () {
-    addClickHandlerToSubmitButton();
-    createPhotoArray();
+function retrieveMeetupData() {
+    var girlDevData = new Promise(function(resolve, reject) {
+        var girlDev = {
+            url: "http://api.meetup.com/2/events?key=6d367432270505e343b4d7c60634879&group_urlname=girl-develop-it-orange-county&sign=true",
+            method: "GET",
+            dataType:"jsonp",
+            success: function(response){
+                console.log(response);
+                global_result=response;
+                var events=global_result.results;
+                data_storage(events)
+                resolve(true);
+            },
+            error: err=> {
+                console.log(err)
+                reject(err);
+            }
+        }
+        
+        $.ajax(girlDev)
+    });
+    
+    var chickTechData = new Promise(function(resolve, reject) {
+        var chickTech = {
+            "url": "https://api.meetup.com/2/events?key=5c103fb263438792137465744f197b&group_urlname=ChickTech-Orange-County&sign=true",
+            "method": "GET",
+            dataType: "jsonp",
+            success: function (reply) {
+                console.log(reply);
+                globalReply = reply;
+                var events=globalReply.results;
+                dataStorage(events);
+                resolve(true);
+            },
+            error: err=> {
+                console.log(err) 
+                reject(err);
+            }
+        }
+        
+        $.ajax(chickTech)
+    });
 
+    var retrievedAllData = Promise.all([girlDevData, chickTechData]).then(function(response) {
+        console.log("Did it work?");
+        $("figure").on("mouseenter",addHoverText);
+        $(".picture").on("click",addDataOntoPage);
+        $(".picture").on("click",hideLandingPageAndShowDataPage);
+        $(".active").on("click",showLandingPageAndHideDataPage);
+    }).catch(function(err) {
+        console.log("Did it didn't work?");
+    });
+}
+
+function initializeApp () {
+    // addClickHandlerToSubmitButton();
+    createPhotoArray();
+    hideDataPage(); 
+    retrieveMeetupData();
+
+}
+
+function hideDataPage () {
+    $("#event-chosen").addClass("hidePage");
+    $("#twitter-and-google-maps").addClass("hidePage");
+}
+
+function data_storage(events){
+    var groupNameArr = [];
+    var eventDescriptionsArr = [];
+    var eventUrlArr = [];
+    var venueNameArr = [];
+    var venueAddressArr = [];
+    var venueCityArr = [];
+    var venueStateArr = [];
+    var latitudeArr = [];
+    var longitudeArr = [];
+    var eventNameArr = [];
+    var dateArr = [];
+
+        for(var i=0;i<events.length; i++){
+            //lat
+            var latitude = global_result.results[i].venue.lat;
+            latitudeArr.push(latitude);
+
+            //lon
+            var longitude = global_result.results[i].venue.lon;
+            longitudeArr.push(longitude);
+
+            //name
+            var eventName = global_result.results[i].name;
+            eventNameArr.push(eventName);
+
+            //date toDateString
+            var date = global_result.results[i].time;
+            var d = new Date(date);
+            var newDate=d.toLocaleString();
+            dateArr.push(newDate);
+            
+
+            //directions including venue name, city, address
+            var venueName =global_result.results[i].venue.name;
+            venueNameArr.push(venueName);
+
+            var state = global_result.results[i].venue.state;
+            venueStateArr.push(state);
+            
+            var city =global_result.results[i].venue.city;
+            venueCityArr.push(city);
+
+            var address = global_result.results[i].venue.address_1;
+            venueAddressArr.push(address);
+        
+            //group name
+            var groupName = global_result.results[i].group.name;
+            groupNameArr.push(groupName);
+
+            //event_url
+            var url=  global_result.results[i].event_url;
+            eventUrlArr.push(url);
+
+            //description
+            var description=global_result.results[i].description;
+            eventDescriptionsArr.push(description);
+
+            
+        }
+        girlDevStorage.groupName = groupNameArr;
+        girlDevStorage.eventName = eventNameArr;
+        girlDevStorage.eventDescriptions = eventDescriptionsArr;
+        girlDevStorage.eventUrl = eventUrlArr;
+        girlDevStorage.venueName = venueNameArr;
+        girlDevStorage.venueAddress = venueAddressArr;
+        girlDevStorage.venueCity = venueCityArr;
+        girlDevStorage.venueState = venueStateArr;
+        girlDevStorage.latitude = latitudeArr;
+        girlDevStorage.longitude = longitudeArr;
+        girlDevStorage.date = dateArr;
+}
+
+function dataStorage(events) {
+    var groupNameArr = [];
+    var eventDescriptionsArr = [];
+    var eventUrlArr = [];
+    var venueNameArr = [];
+    var venueAddressArr = [];
+    var venueCityArr = [];
+    var venueStateArr = [];
+    var latitudeArr = [];
+    var longitudeArr = [];
+    var eventNameArr = [];
+    var dateArr = [];
+
+    for (var x = 0; x<events.length; x++) {
+        var groupName = globalReply.results[x].group.name;
+        groupNameArr.push(groupName);
+
+        var eventDescriptions = globalReply.results[x].description;
+        eventDescriptionsArr.push(eventDescriptions);
+
+        var eventUrl = globalReply.results[x].event_url;
+        eventUrlArr.push(eventUrl);
+
+        var venueName = globalReply.results[x].venue.name;
+        venueNameArr.push(venueName);
+
+        var venueAddress = globalReply.results[x].venue.address_1;
+        venueAddressArr.push(venueAddress);
+
+        var venueCity = globalReply.results[x].venue.city;
+        venueCityArr.push(venueCity);
+
+        var venueState = globalReply.results[x].venue.state;
+        venueStateArr.push(venueState);
+
+        var latitude =globalReply.results[x].venue.lat;
+        latitudeArr.push(latitude);
+
+        var longitude = globalReply.results[x].venue.lon;
+        longitudeArr.push(longitude);
+
+        var eventName = globalReply.results[x].name;
+        eventNameArr.push(eventName);
+
+        //gets date and converts to readable format
+        var date = globalReply.results[x].time;
+        var newDate = new Date(date);
+        var dateToString = newDate.toLocaleString();
+        dateArr.push(dateToString);
+
+
+    }
+    chickTechStorage.groupName = groupNameArr;
+    chickTechStorage.eventName = eventNameArr;
+    chickTechStorage.eventDescriptions = eventDescriptionsArr;
+    chickTechStorage.eventUrl = eventUrlArr;
+    chickTechStorage.venueName = venueNameArr;
+    chickTechStorage.venueAddress = venueAddressArr;
+    chickTechStorage.venueCity = venueCityArr;
+    chickTechStorage.venueState = venueStateArr;
+    chickTechStorage.latitude = latitudeArr;
+    chickTechStorage.longitude = longitudeArr;
+    chickTechStorage.date = dateArr;
 }
 
 function initMap () {
@@ -122,17 +325,12 @@ function placeRandomImages(array){
             newFigure.append(hoverP);
         }
         $('#events-to-choose').append(figureArray);
-        $("figure").on("mouseenter",addHoverText);
-        $(".picture").on("click",addDataOntoPage);
-    $(".picture").on("click",hideLandingPageAndShowDataPage);
-    $(".active").on("click",showLandingPageAndHideDataPage);
-
 }
 
 
-function addClickHandlerToSubmitButton(){
-    $('#submit').click(search)
-}
+// function addClickHandlerToSubmitButton(){
+//     $('#submit').click(search)
+// }
 
 function search(){
     $.ajax({
