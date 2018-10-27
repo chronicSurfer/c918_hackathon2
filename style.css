@@ -31,7 +31,8 @@ ul{
 
 .landing_page>figure>img{
     width:100%;  
-    border-radius:10%; 
+    border-radius:10%;
+    float: left;
 }
 
 
@@ -60,7 +61,7 @@ img:hover + p {
 
 .event-information{
     background-color:white;
-    text-align:center;
+    /* text-align:center; */
 }
 .event-information>.event-img>figure{
     display:inline-block;    
@@ -68,9 +69,19 @@ img:hover + p {
 }
 .event-info{
     background-color:white;
-    display:block;
+    display:inline-block;
     position:relative;
     margin-bottom: 2%;
+}
+
+.event-img {
+    vertical-align: top;
+    display: inline-block;
+    width:50%;
+}
+
+figure > img {
+    width: 100%;
 }
 
 .event-description {
