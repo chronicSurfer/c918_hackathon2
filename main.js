@@ -141,9 +141,7 @@ function search(){
         success: function(data){
             console.log(data);
             for(item in data.tweets.statuses) {
-                $('#tweets').append( $('<li>', {
-                    text: data.tweets.statuses[item].text
-                }) );
+                $('#tweets').append( $('<li>', { text: data.tweets.statuses[item].text}) );
             }
         }
     });
@@ -156,13 +154,13 @@ function addDataOntoPage () {
             console.log("I am alive");
             if(i > storeReply.chickTech.eventName.length-1){
                 $(".event-name").text(storeReply.girlDev.eventName[i]);
-                
+
                 //stuff inside the replace method is a regex call
                 //it grabs everything that starts with "<" and something inside and ends with a ">"
                 //and get every instance of that
                 //then it replaces them all with an empty string
                 // storeReply.chickTech.eventDescriptions[0].replace(/<[^<>]*>/g, '');
-                
+
                 var totalEventDescriptions = "";
                 for(var index = 0; index < 1; index++){
                     totalEventDescriptions = storeReply.girlDev.eventDescriptions[i].replace(/<[^<>]*>/g, '');
@@ -179,7 +177,7 @@ function addDataOntoPage () {
                     lat: storeReply.girlDev.latitude[i],
                     lng: storeReply.girlDev.longitude[i]
                 }
-        
+
                 addOneMarkerToMap(coordinates);
             }
             else{
@@ -199,10 +197,10 @@ function addDataOntoPage () {
                     lat: storeReply.chickTech.latitude[i],
                     lng: storeReply.chickTech.longitude[i]
                 }
-        
+
                 addOneMarkerToMap(coordinates);
             }
-        } 
+        }
     }
 }
 
