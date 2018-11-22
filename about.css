@@ -9,59 +9,7 @@ body {
 
 }
 
-header {
-    height: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.headerContainer {
-    display: flex;
-}
-
-
-
 img {
-    width: auto%;
-    height: 70%;
-    border-radius: 50%;
-
-
+    width: 20%;
+    height: 50%;
 }
-
-.erinContainer {
-    height: 90%;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.viennaContainer {
-    height: 90%;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.brandonContainer {
-    height: 90%;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.julianContainer {
-    height: 90%;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.kyleContainer {
-    height: 90%;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.futureReleases {
-    width: 80%;
-    margin: 0 auto;
-}
-
