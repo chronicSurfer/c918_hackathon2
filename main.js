@@ -258,7 +258,7 @@ function getEventsList(meetupStorage){
             var newImage = $('<img>').addClass('picture').attr(
                 'src', meetupStorage.groupPhoto[i]
             );
-            var nameOfEvent=$('<figcaption>').text(meetupStorage.eventName[i]);
+            var nameOfEvent=$('<p>').text(meetupStorage.eventName[i]);
             newFigure.append(nameOfEvent);
             newFigure.append(newImage);
             figureArray.push(newFigure);

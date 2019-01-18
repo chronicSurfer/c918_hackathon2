@@ -124,6 +124,10 @@ header {
 
 figure {
   margin: 0;
+  font-size:15px;
+}
+p{
+  text-align:center;
 }
 
 .img-container {
@@ -146,8 +150,11 @@ figure {
 }
 
 .landing_page > figure {
-  width: 33%;
+  width: 30%;
   height: 100%;
+  /* background-color: lightgreen; */
+  min-height:250px;
+  border: 1px black solid;
 }
 
 .landing_page > figure > img {
@@ -155,6 +162,7 @@ figure {
   border-radius: 10%;
   height: 95%;
 }
+
 
 /* .landing_page > figure > img:hover {
   opacity: 0.25;
