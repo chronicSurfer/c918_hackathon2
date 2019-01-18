@@ -165,6 +165,7 @@ function showLandingPageAndHideDataPage () {
 }
 
 // //images for landing page will change to meetup
+
 function createPhotoArray(){
     // var linkArray = [];
     // $.ajax({
@@ -198,6 +199,90 @@ function createPhotoArray(){
     var placeholderImages = [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b];
     placeRandomImages(placeholderImages);
 }
+
+
+
+
+function chickTechGallery(){
+    var chickTechArray = [];
+    var link = '';
+
+    $.ajax({
+        url: 'https://api.flickr.com/services/rest/',
+        method: 'get',
+        dataType: 'json',
+        data: {
+            api_key: 'e00e98b08d999c1fbe15689b175ad887',
+            method: 'flickr.photosets.getPhotos',
+            photoset_id: '72157673615663237',
+            user_id: '92769341@N03',
+            format: 'json',
+            nojsoncallback: 1
+        },
+        success: function(response){
+            console.log('got data from ChickTech gallery:', response);
+            var photo = response.photoset.photo;
+            
+            for(var position = 0; position < chickTechArray.length; position++){
+                var link = '';
+                var farm = photo[position].farm;
+            }
+
+
+            debugger;
+
+            
+            // var farm = photoPosition.farm;
+            // var server = photoPosition.server;
+            // var id = photoPosition.id;
+            // var secret = photoPosition.secret;
+            // link = 'http://farm' + farm + 'staticflickr.com/' + server + '/' + id + '_' + secret + '.jpg';
+            chickTechArray.push(link);
+        }
+    })
+
+    // var linkArray = [];
+    // $.ajax({
+    //     url: 'https://api.flickr.com/services/rest/',
+    //     method: 'get',
+    //     dataType: 'json',
+    //     data: {
+    //         api_key: 'e00e98b08d999c1fbe15689b175ad887',
+    //         method:'flickr.people.getPublicPhotos',
+    //         user_id: '136629440@N06',
+    //         format: 'json',
+    //         nojsoncallback: 1
+    //     },
+    //     success: function(response){
+    //         console.log('got data from flickr', response);
+
+    //         for(var i = 66; i < 74; i++){
+    //             var photoFarm = response.photos.photo[i].farm;
+    //             var photoServer = response.photos.photo[i].server;
+    //             var photoID = response.photos.photo[i].id;
+    //             var photoSecret = response.photos.photo[i].secret;
+    //             var link = 'https://farm' + photoFarm + '.staticflickr.com/' + photoServer + '/' + photoID + '_' + photoSecret + '.jpg';
+    //             linkArray.push(link);
+    //         }
+    //         // pickRandomImages(linkArray);
+            
+    //     },
+        
+    //   });
+    // var b = "wit.jpg";
+    // var placeholderImages = [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b];
+    // placeRandomImages(placeholderImages);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 // function pickRandomImages(array){
