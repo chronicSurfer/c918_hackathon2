@@ -19,6 +19,14 @@ body {
   cursor: pointer;
 }
 
+.new-events{
+  cursor: pointer;
+  width: 32%;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .bp {
   font-size: 150%;
   font-family: sans-serif;

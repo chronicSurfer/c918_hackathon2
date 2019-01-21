@@ -86,23 +86,23 @@ function dataStorage(events) {
         var eventUrl = global_result.results[x].event_url;
         eventUrlArr.push(eventUrl);
 
-        var venueName = global_result.results[x].venue.name;
-        venueNameArr.push(venueName);
+        // var venueName = global_result.results[x].venue.name;
+        // venueNameArr.push(venueName);
 
-        var venueAddress = global_result.results[x].venue.address_1;
-        venueAddressArr.push(venueAddress);
+        // var venueAddress = global_result.results[x].venue.address_1;
+        // venueAddressArr.push(venueAddress);
 
-        var venueCity = global_result.results[x].venue.city;
-        venueCityArr.push(venueCity);
+        // var venueCity = global_result.results[x].venue.city;
+        // venueCityArr.push(venueCity);
 
-        var venueState = global_result.results[x].venue.state;
-        venueStateArr.push(venueState);
+        // var venueState = global_result.results[x].venue.state;
+        // venueStateArr.push(venueState);
 
-        var latitude =global_result.results[x].venue.lat;
-        latitudeArr.push(latitude);
+        // var latitude =global_result.results[x].venue.lat;
+        // latitudeArr.push(latitude);
 
-        var longitude = global_result.results[x].venue.lon;
-        longitudeArr.push(longitude);
+        // var longitude = global_result.results[x].venue.lon;
+        // longitudeArr.push(longitude);
 
         var eventName = global_result.results[x].name;
         eventNameArr.push(eventName);
@@ -309,9 +309,7 @@ function getEventsList(meetupStorage){
 function getThreeList(meetupStorage){
     var figureArray = [];
         for(let i = 0; i <3; i++) {
-            //create an img with the src from the array and append it to the appropriate figure in the figureArray
-            //append that figureArray to #events-to-choose
-            var newFigure = $('<figure>').addClass('figure').attr('index',i);
+            var newFigure = $('<figure>').addClass("new-events").attr('index',i);
             var newImage = $('<img>').addClass('picture').attr(
                 'src', meetupStorage.groupPhoto[i]
             );
